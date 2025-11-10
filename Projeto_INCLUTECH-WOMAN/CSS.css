@@ -1,0 +1,632 @@
+/* ==================== RESET E CONFIGURAÇÕES GLOBAIS ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: "Funnel Display", sans-serif;
+    background: linear-gradient(135deg, #8313F2 0%, #020659 100%);
+    color: #0D0D0D;
+    line-height: 1.6;
+    min-height: 100vh;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== TELA DE LOGIN ==================== */
+
+.login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, #8313F2 0%, #020659 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Container do formulário de login */
+.login-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    max-width: 450px;
+    width: 100%;
+    animation: fadeIn 0.5s;
+    margin: 0 auto; /* Garante centralização */
+}
+
+/* Logo na tela de login */
+.logo-login {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+}
+
+/* ==================== FORMULÁRIOS ==================== */
+/* Grupo de campos do formulário */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Labels dos campos */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #020659;
+    font-weight: 500;
+}
+
+/* Inputs e selects */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+/* Estado de foco dos inputs */
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #8313F2;
+}
+
+/* Estado de erro dos inputs */
+.form-group input.error,
+.form-group select.error {
+    border-color: #ff4444;
+}
+
+/* Mensagens de erro */
+.error-message {
+    color: #ff4444;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+
+/* Exibir mensagem de erro */
+.error-message.show {
+    display: block;
+}
+
+/* ==================== BOTÕES ==================== */
+/* Botão principal */
+.btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Efeito hover do botão */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(238, 5, 242, 0.4);
+}
+
+/* Botão desabilitado */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Botão secundário */
+.btn-secondary {
+    background: white;
+    color: #8313F2;
+    border: 2px solid #8313F2;
+}
+
+/* Botão para voltar ao início */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #EE05F2, #960199);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 2rem;
+}
+
+.btn-back:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 5px 15px rgba(238, 5, 242, 0.4);
+}
+
+/* Links de texto */
+.link-text {
+    text-align: center;
+    margin-top: 1rem;
+    color: #666;
+}
+
+.link-text a {
+    color: #8313F2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==================== PLATAFORMA PRINCIPAL ==================== */
+.main-platform {
+    display: none;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Logo do header */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Menu de navegação */
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+/* Links do menu */
+.nav-menu a {
+    color: #020659;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+/* Estado hover e ativo do menu */
+.nav-menu a:hover,
+.nav-menu a.active {
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    color: white;
+}
+
+/* Menu do usuário */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Ícone do usuário */
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;    
+}
+
+/* ==================== CONTEÚDO ==================== */
+.content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem 4rem 2rem;
+}
+
+/* Conteúdo das abas */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+/* Aba ativa */
+.tab-content.active {
+    display: block;
+}
+
+/* ==================== CARDS ==================== */
+/* Grid de cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Card individual */
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+/* Efeito hover do card */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(238, 5, 242, 0.2);
+}
+
+/* Imagem do card */
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Conteúdo do card */
+.card-content {
+    padding: 2rem;
+}
+
+/* Header do card */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Ícone do card */
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.card-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Título do card */
+.card h3 {
+    color: #020659;
+}
+
+/* Parágrafo do card */
+.card p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Botão do card */
+.card-btn {
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.card-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ==================== SEÇÃO HERO ==================== */
+.hero-section {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+    color: #020659;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* ==================== MENU DROPDOWN ==================== */
+.dropdown {
+    position: relative;
+}
+
+/* Conteúdo do dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Links do dropdown */
+.dropdown-content a {
+    display: block;
+    padding: 1rem;
+    color: #020659;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.dropdown-content a:hover {
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    color: white;
+}
+
+/* Dropdown ativo */
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* ==================== FORMULÁRIO DE VAGA ==================== */
+.form-vaga {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.form-vaga h3 {
+    color: #020659;
+    margin-bottom: 1.5rem;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 100px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #8313F2;
+}
+
+/* ==================== NOTIFICAÇÕES ==================== */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 2000;
+    animation: slideIn 0.3s;
+}
+
+.notification.show {
+    display: block;
+}
+
+/* Notificação de sucesso */
+.notification.success {
+    border-left: 4px solid #4CAF50;
+}
+
+/* Notificação de erro */
+.notification.error {
+    border-left: 4px solid #ff4444;
+}
+
+/* ==================== INDICADOR DE FORÇA DE SENHA ==================== */
+.password-strength {
+    height: 4px;
+    background: #eee;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s;
+}
+
+/* Senha fraca */
+.password-strength-bar.weak {
+    width: 33%;
+    background: #ff4444;
+}
+
+/* Senha média */
+.password-strength-bar.medium {
+    width: 66%;
+    background: #ffa500;
+}
+
+/* Senha forte */
+.password-strength-bar.strong {
+    width: 100%;
+    background: #4CAF50;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background: white;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    color: #020659;
+    margin-bottom: 1rem;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #666;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: #8313F2;
+}
+
+/* Redes sociais */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(238, 5, 242, 0.4);
+}
+
+.social-links a img {
+    width: 29px;
+    height: 29px;
+    object-fit: contain;
+}
+
+/* Copyright */
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    color: #666;
+}
+
+/* ==================== ANIMAÇÕES ==================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(400px); }
+    to { transform: translateX(0); }
+}
+
+/* ==================== UTILIDADES ==================== */
+.hidden {
+    display: none;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .card-image {
+        height: 150px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .login-screen {
+        justify-content: center;
+        padding: 2rem;
+    }
+}
