@@ -583,5 +583,33 @@
                 }
             }
         });
+          /**
+         * Exibe uma aba específica e esconde as outras
+         * Atualiza o menu de navegação para destacar a aba ativa
+         * @param {string} aba - ID da aba a ser exibida
+         */
+        function mostrarAba(aba) {
+            // Esconde todas as abas
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Exibe a aba selecionada
+            document.getElementById(aba).classList.add('active');
+
+            // Atualiza destaque do menu - Remove active de todos os links
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Adiciona active ao link correspondente à aba atual
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                // Verifica qual aba corresponde ao onclick do link
+                const onclickAttr = link.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes(`'${aba}'`)) {
+                    link.classList.add('active');
+                }
+            });
+        }
 
         /* ==================== FIM DO CÓDIGO JAVASCRIPT ==================== */

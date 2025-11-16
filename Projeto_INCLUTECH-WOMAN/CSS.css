@@ -26,26 +26,92 @@ body {
 
 .login-screen {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: flex-start;
     min-height: 100vh;
-    padding: 2rem;
-    background: linear-gradient(135deg, #8313F2 0%, #020659 100%);
+    padding: 0;
+    background: white;
+}
+
+/* Seção da imagem - 58% da tela */
+.login-screen::before {
+    content: '';
+    width: 58%;
+    background-image: url(https://cdn.pixabay.com/photo/2023/06/22/07/59/women-8080878_1280.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Efeito de gradiente suave na transição */
+.login-screen::after {
+    content: '';
+    position: absolute;
+    left: 58%;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 /* Container do formulário de login */
 .login-box {
     background: white;
     padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s;
+    overflow-y: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ícones de TI no fundo do formulário */
+.login-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        url('https://cdn-icons-png.flaticon.com/128/1005/1005141.png'),
+        url('https://cdn-icons-png.flaticon.com/128/2920/2920349.png'),
+        url('https://cdn-icons-png.flaticon.com/128/3959/3959542.png'),
+        url('https://cdn-icons-png.flaticon.com/128/2738/2738055.png'),
+        url('https://cdn-icons-png.flaticon.com/128/1183/1183621.png'),
+        url('https://cdn-icons-png.flaticon.com/128/2666/2666505.png'),
+        url('https://cdn-icons-png.flaticon.com/128/3112/3112695.png'),
+        url('https://cdn-icons-png.flaticon.com/128/8099/8099231.png');
+    background-position: 
+        10% 15%,
+        85% 10%,
+        15% 45%,
+        80% 40%,
+        12% 75%,
+        88% 70%,
+        25% 88%,
+        70% 85%;
+    background-size: 60px, 50px, 55px, 65px, 50px, 58px, 52px, 48px;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+    filter: brightness(0) saturate(100%) invert(20%) sepia(98%) saturate(4500%) hue-rotate(270deg);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Wrapper interno para controlar largura do formulário */
+.login-box > * {
     max-width: 450px;
     width: 100%;
-    animation: fadeIn 0.5s;
-    margin: 0 auto; /* Garante centralização */
+    position: relative;
+    z-index: 1;
 }
 
 /* Logo na tela de login */
