@@ -612,4 +612,452 @@
             });
         }
 
+        /* ==================== FUNÇÕES PARA ÁREA DO EMPREGADOR ==================== */
+/* Cole este código NO FINAL do arquivo codigo.js (antes do comentário final) */
+
+/**
+ * Alterna entre as seções do dashboard do empregador
+ * @param {string} secao - ID da seção a ser exibida
+ */
+function mostrarSecaoEmpregador(secao) {
+    // Esconde todas as seções do empregador
+    document.querySelectorAll('.content-section-emp').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Exibe a seção selecionada
+    document.getElementById(secao).classList.add('active');
+    
+    // Atualiza os botões do menu
+    document.querySelectorAll('.nav-btn-emp').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Adiciona classe active ao botão clicado
+    event.target.classList.add('active');
+}
+
+/**
+ * Alterna entre os campos de vaga e curso no formulário de publicação
+ */
+function alternarCamposPublicacao() {
+    const tipo = document.getElementById('tipoPublicacaoEmp').value;
+    const camposVaga = document.getElementById('camposVagaEmp');
+    const camposCurso = document.getElementById('camposCursoEmp');
+    
+    if (tipo === 'vaga') {
+        camposVaga.style.display = 'block';
+        camposCurso.style.display = 'none';
+    } else {
+        camposVaga.style.display = 'none';
+        camposCurso.style.display = 'block';
+    }
+}
+
+/**
+ * Aprova um pedido recebido
+ * @param {number} idPedido - ID do pedido a ser aprovado
+ */
+function aprovarPedido(idPedido) {
+    if (confirm('Deseja aprovar este pedido?')) {
+        mostrarNotificacao(`Pedido #${idPedido} aprovado com sucesso! A solicitante será notificada. ✓`, 'success');
+        
+        // Atualiza o status visualmente (simulação)
+        const pedidoCard = event.target.closest('.pedido-card');
+        const statusBadge = pedidoCard.querySelector('.pedido-status');
+        statusBadge.textContent = '✓ Aprovado';
+        statusBadge.className = 'pedido-status status-aprovado';
+        
+        // Remove os botões de ação
+        const acoesDiv = pedidoCard.querySelector('.acoes-pedido');
+        if (acoesDiv) {
+            acoesDiv.remove();
+        }
+    }
+}
+
+/**
+ * Rejeita um pedido recebido
+ * @param {number} idPedido - ID do pedido a ser rejeitado
+ */
+function rejeitarPedido(idPedido) {
+    const motivo = prompt('Deseja informar o motivo da rejeição? (opcional)');
+    
+    if (motivo !== null) { // null significa que cancelou
+        mostrarNotificacao(`Pedido #${idPedido} rejeitado. A solicitante será notificada. ✗`, 'error');
+        
+        // Atualiza o status visualmente (simulação)
+        const pedidoCard = event.target.closest('.pedido-card');
+        const statusBadge = pedidoCard.querySelector('.pedido-status');
+        statusBadge.textContent = '✗ Rejeitado';
+        statusBadge.className = 'pedido-status status-rejeitado';
+        
+        // Remove os botões de ação
+        const acoesDiv = pedidoCard.querySelector('.acoes-pedido');
+        if (acoesDiv) {
+            acoesDiv.remove();
+        }
+    }
+}
+
+/**
+ * Valida e publica uma nova vaga ou curso
+ */
+function publicarConteudoEmpregador() {
+    const tipo = document.getElementById('tipoPublicacaoEmp').value;
+    let valido = true;
+    
+    if (tipo === 'vaga') {
+        // Validação de vaga de emprego
+        const titulo = document.getElementById('tituloVagaEmp').value.trim();
+        const nomeEmpresa = document.getElementById('nomeEmpresaEmp').value.trim();
+        const descricao = document.getElementById('descricaoVagaEmp').value.trim();
+        const localizacao = document.getElementById('localizacaoVagaEmp').value.trim();
+        const contato = document.getElementById('contatoPublicacaoEmp').value.trim();
+        
+        // Valida título
+        if (!titulo) {
+            mostrarErro('tituloVagaEmp', 'tituloVagaEmpError');
+            valido = false;
+        } else {
+            mostrarErro('tituloVagaEmp', 'tituloVagaEmpError', false);
+        }
+        
+        // Valida nome da empresa
+        if (!nomeEmpresa) {
+            mostrarErro('nomeEmpresaEmp', 'nomeEmpresaEmpError');
+            valido = false;
+        } else {
+            mostrarErro('nomeEmpresaEmp', 'nomeEmpresaEmpError', false);
+        }
+        
+        // Valida descrição
+        if (!descricao) {
+            mostrarErro('descricaoVagaEmp', 'descricaoVagaEmpError');
+            valido = false;
+        } else {
+            mostrarErro('descricaoVagaEmp', 'descricaoVagaEmpError', false);
+        }
+        
+        // Valida localização
+        if (!localizacao) {
+            mostrarErro('localizacaoVagaEmp', 'localizacaoVagaEmpError');
+            valido = false;
+        } else {
+            mostrarErro('localizacaoVagaEmp', 'localizacaoVagaEmpError', false);
+        }
+        
+        // Valida contato
+        if (!contato) {
+            mostrarErro('contatoPublicacaoEmp', 'contatoPublicacaoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('contatoPublicacaoEmp', 'contatoPublicacaoEmpError', false);
+        }
+        
+        if (valido) {
+            mostrarNotificacao('✓ Vaga de emprego publicada com sucesso! Em breve aparecerá na plataforma. 💼', 'success');
+            limparFormularioPublicacao();
+        } else {
+            mostrarNotificacao('⚠️ Por favor, preencha todos os campos obrigatórios.', 'error');
+        }
+        
+    } else if (tipo === 'curso') {
+        // Validação de curso
+        const nomeCurso = document.getElementById('nomeCursoEmp').value.trim();
+        const instituicao = document.getElementById('instituicaoCursoEmp').value.trim();
+        const descricao = document.getElementById('descricaoCursoEmp').value.trim();
+        const cargaHoraria = document.getElementById('cargaHorariaCursoEmp').value.trim();
+        const dataInicio = document.getElementById('dataInicioCursoEmp').value;
+        const contato = document.getElementById('contatoPublicacaoEmp').value.trim();
+        
+        // Valida nome do curso
+        if (!nomeCurso) {
+            mostrarErro('nomeCursoEmp', 'nomeCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('nomeCursoEmp', 'nomeCursoEmpError', false);
+        }
+        
+        // Valida instituição
+        if (!instituicao) {
+            mostrarErro('instituicaoCursoEmp', 'instituicaoCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('instituicaoCursoEmp', 'instituicaoCursoEmpError', false);
+        }
+        
+        // Valida descrição
+        if (!descricao) {
+            mostrarErro('descricaoCursoEmp', 'descricaoCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('descricaoCursoEmp', 'descricaoCursoEmpError', false);
+        }
+        
+        // Valida carga horária
+        if (!cargaHoraria) {
+            mostrarErro('cargaHorariaCursoEmp', 'cargaHorariaCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('cargaHorariaCursoEmp', 'cargaHorariaCursoEmpError', false);
+        }
+        
+        // Valida data de início
+        if (!dataInicio) {
+            mostrarErro('dataInicioCursoEmp', 'dataInicioCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('dataInicioCursoEmp', 'dataInicioCursoEmpError', false);
+        }
+        
+        // Valida contato
+        if (!contato) {
+            mostrarErro('contatoPublicacaoEmp', 'contatoPublicacaoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('contatoPublicacaoEmp', 'contatoPublicacaoEmpError', false);
+        }
+        
+        if (valido) {
+            mostrarNotificacao('✓ Curso publicado com sucesso! Em breve aparecerá na plataforma. 📚', 'success');
+            limparFormularioPublicacao();
+        } else {
+            mostrarNotificacao('⚠️ Por favor, preencha todos os campos obrigatórios.', 'error');
+        }
+    }
+}
+
+/**
+ * Limpa o formulário de publicação após envio bem-sucedido
+ */
+function limparFormularioPublicacao() {
+    // Limpa campos de vaga
+    document.getElementById('tituloVagaEmp').value = '';
+    document.getElementById('nomeEmpresaEmp').value = '';
+    document.getElementById('descricaoVagaEmp').value = '';
+    document.getElementById('localizacaoVagaEmp').value = '';
+    document.getElementById('salarioVagaEmp').value = '';
+    document.getElementById('requisitosVagaEmp').value = '';
+    document.getElementById('beneficiosVagaEmp').value = '';
+    
+    // Limpa campos de curso
+    document.getElementById('nomeCursoEmp').value = '';
+    document.getElementById('instituicaoCursoEmp').value = '';
+    document.getElementById('descricaoCursoEmp').value = '';
+    document.getElementById('cargaHorariaCursoEmp').value = '';
+    document.getElementById('dataInicioCursoEmp').value = '';
+    document.getElementById('horarioCursoEmp').value = '';
+    document.getElementById('vagasCursoEmp').value = '';
+    document.getElementById('requisitosCursoEmp').value = '';
+    
+    // Limpa contato
+    document.getElementById('contatoPublicacaoEmp').value = '';
+    
+    // Remove erros
+    limparErros();
+}
+
+/**
+ * Edita uma publicação existente
+ * @param {number} idPublicacao - ID da publicação a ser editada
+ */
+function editarPublicacao(idPublicacao) {
+    mostrarNotificacao(`Abrindo editor para a publicação #${idPublicacao}... ✏️`, 'success');
+    
+    // Navega para a seção de publicar
+    mostrarSecaoEmpregador('publicar-emp');
+    
+    // Aqui você pode preencher o formulário com os dados da publicação
+    // (simulação - em produção, buscaria os dados do banco)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/**
+ * Exclui uma publicação
+ * @param {number} idPublicacao - ID da publicação a ser excluída
+ */
+function excluirPublicacao(idPublicacao) {
+    if (confirm('⚠️ Tem certeza que deseja excluir esta publicação? Esta ação não pode ser desfeita.')) {
+        mostrarNotificacao(`Publicação #${idPublicacao} excluída com sucesso! 🗑️`, 'success');
+        
+        // Remove o card visualmente (simulação)
+        const vagaCard = event.target.closest('.vaga-emp-item');
+        if (vagaCard) {
+            vagaCard.style.transition = 'opacity 0.3s, transform 0.3s';
+            vagaCard.style.opacity = '0';
+            vagaCard.style.transform = 'translateX(-50px)';
+            
+            setTimeout(() => {
+                vagaCard.remove();
+            }, 300);
+        }
+    }
+}
+
+/**
+ * Exibe os candidatos de uma vaga específica
+ * @param {number} idVaga - ID da vaga
+ */
+function verCandidatosVaga(idVaga) {
+    // Navega para a seção de candidatos
+    mostrarSecaoEmpregador('candidatos-emp');
+    
+    // Exibe candidatos exemplo (simulação)
+    const listaCandidatos = document.getElementById('listaCandidatosEmp');
+    
+    listaCandidatos.innerHTML = `
+        <h3 style="color: #020659; margin-bottom: 1.5rem;">Candidatos da Vaga #${idVaga}</h3>
+        
+        <div class="candidato-card">
+            <div class="candidato-header">
+                <div class="candidato-info">
+                    <h4>👤 Maria Silva</h4>
+                    <p>📧 maria.silva@email.com</p>
+                    <p>📱 (83) 99999-8888</p>
+                    <p>🎯 Área: Desenvolvimento Web</p>
+                    <p>📊 Nível: Intermediário</p>
+                </div>
+                <button class="btn-visualizar" onclick="visualizarCandidato(1)">
+                    👁️ Ver Perfil Completo
+                </button>
+            </div>
+            <p style="margin-top: 1rem; color: #666;">
+                <strong>Candidatou-se em:</strong> 14/11/2025 às 10:30
+            </p>
+        </div>
+        
+        <div class="candidato-card">
+            <div class="candidato-header">
+                <div class="candidato-info">
+                    <h4>👤 Ana Costa</h4>
+                    <p>📧 ana.costa@email.com</p>
+                    <p>📱 (83) 98888-7777</p>
+                    <p>🎯 Área: Desenvolvimento Web</p>
+                    <p>📊 Nível: Iniciante</p>
+                </div>
+                <button class="btn-visualizar" onclick="visualizarCandidato(2)">
+                    👁️ Ver Perfil Completo
+                </button>
+            </div>
+            <p style="margin-top: 1rem; color: #666;">
+                <strong>Candidatou-se em:</strong> 13/11/2025 às 15:45
+            </p>
+        </div>
+        
+        <div class="candidato-card">
+            <div class="candidato-header">
+                <div class="candidato-info">
+                    <h4>👤 Julia Santos</h4>
+                    <p>📧 julia.santos@email.com</p>
+                    <p>📱 (83) 97777-6666</p>
+                    <p>🎯 Área: UX/UI Design</p>
+                    <p>📊 Nível: Avançado</p>
+                </div>
+                <button class="btn-visualizar" onclick="visualizarCandidato(3)">
+                    👁️ Ver Perfil Completo
+                </button>
+            </div>
+            <p style="margin-top: 1rem; color: #666;">
+                <strong>Candidatou-se em:</strong> 12/11/2025 às 09:20
+            </p>
+        </div>
+    `;
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/**
+ * Visualiza o perfil completo de um candidato
+ * @param {number} idCandidato - ID do candidato
+ */
+function visualizarCandidato(idCandidato) {
+    mostrarNotificacao(`Abrindo perfil completo do candidato #${idCandidato}... 👁️`, 'success');
+    
+    // Aqui você implementaria a visualização do perfil completo
+    // Por exemplo, abrir um modal ou redirecionar para uma página de detalhes
+}
+
+/**
+ * Salva as alterações do perfil do empregador
+ */
+function salvarPerfilEmpregador() {
+    const nome = document.getElementById('nomePerfilEmp').value.trim();
+    const email = document.getElementById('emailPerfilEmp').value.trim();
+    const telefone = document.getElementById('telefonePerfilEmp').value.trim();
+    
+    if (!nome || !email || !telefone) {
+        mostrarNotificacao('⚠️ Por favor, preencha os campos obrigatórios (Nome, E-mail e Telefone).', 'error');
+        return;
+    }
+    
+    mostrarNotificacao('✓ Perfil atualizado com sucesso! 💾', 'success');
+}
+
+/**
+ * IMPORTANTE: SUBSTITUA a função entrarPlataforma EXISTENTE por esta versão atualizada
+ * Modifica a função entrarPlataforma para suportar empregador
+ */
+function entrarPlataforma() {
+    const nome = usuarioNome || 'Usuário';
+    
+    // Esconde tela de login e exibe plataforma
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('mainPlatform').style.display = 'block';
+    
+    // Verifica o tipo de usuário e exibe o dashboard apropriado
+    if (usuarioTipo === 'empregador') {
+        // Esconde o conteúdo padrão e exibe dashboard do empregador
+        document.querySelector('.content').style.display = 'none';
+        document.getElementById('empregadorDashboard').classList.add('active');
+        
+        // Exibe notificação de boas-vindas
+        mostrarNotificacao(`Bem-vindo, ${nome}! Gerencie suas vagas e cursos. 💼`, 'success');
+        
+    } else {
+        // Exibe conteúdo padrão para usuária
+        document.querySelector('.content').style.display = 'block';
+        document.getElementById('empregadorDashboard').classList.remove('active');
+        
+        // Exibe notificação de boas-vindas
+        mostrarNotificacao(`Bem-vinda, ${nome}! 💜`, 'success');
+    }
+}
+
+/**
+ * IMPORTANTE: SUBSTITUA a função sair EXISTENTE por esta versão atualizada
+ * Modifica a função sair para resetar também o dashboard do empregador
+ */
+function sair() {
+    if (confirm('Deseja realmente sair?')) {
+        // Esconde plataforma e exibe tela de login
+        document.getElementById('mainPlatform').style.display = 'none';
+        document.getElementById('loginScreen').style.display = 'flex';
+        
+        // Reseta displays
+        document.querySelector('.content').style.display = 'block';
+        document.getElementById('empregadorDashboard').classList.remove('active');
+        
+        // Reseta todos os formulários para estado inicial
+        document.getElementById('loginForm').classList.remove('hidden');
+        document.getElementById('cadastroForm').classList.add('hidden');
+        document.getElementById('tipoUsuarioForm').classList.add('hidden');
+        document.getElementById('dadosUsuariaForm').classList.add('hidden');
+        document.getElementById('dadosEmpregadorForm').classList.add('hidden');
+        
+        // Limpa variáveis
+        usuarioTipo = '';
+        usuarioNome = '';
+        usuarioEmail = '';
+        
+        // Limpa erros
+        limparErros();
+        
+        // Exibe mensagem de despedida
+        mostrarNotificacao('Até breve! 👋', 'success');
+    }
+}
+
+/* ==================== FIM DAS FUNÇÕES DO EMPREGADOR ==================== */
+
         /* ==================== FIM DO CÓDIGO JAVASCRIPT ==================== */

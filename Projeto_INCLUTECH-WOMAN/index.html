@@ -77,7 +77,7 @@
             <div id="tipoUsuarioForm" class="hidden">
                 <h3 style="text-align: center; color: #020659; margin-bottom: 1.5rem;">Escolha o tipo de perfil</h3>
                 <button class="btn" style="margin-bottom: 1rem;" onclick="preencherDadosUsuaria()"> Usuária</button>
-                <button class="btn btn-secondary" onclick="preencherDadosEmpregador()"> Empregador</button>
+                <button class="btn btn-secondary" onclick="preencherDadosEmpregador()"> Instituição/Empregador</button>
             </div>
 
             <!-- Dados da Usuária -->
@@ -593,6 +593,348 @@
                             <button class="card-btn" onclick="assinarPlano('empresarial')">Assinar</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DASHBOARD DO EMPREGADOR ==================== -->
+        <div id="empregadorDashboard" class="empregador-dashboard">
+            <div class="hero-section">
+                <h1>Painel do Empregador/Instituição 💼</h1>
+                <p>Bem-vindo ao seu painel de gestão</p>
+            </div>
+
+            <!-- Menu de Navegação do Empregador -->
+            <div class="nav-menu-empregador">
+                <button class="nav-btn-emp active" onclick="mostrarSecaoEmpregador('pedidos-emp')">
+                    Pedidos
+                </button>
+                <button class="nav-btn-emp" onclick="mostrarSecaoEmpregador('publicar-emp')">
+                    Publicar Vaga/Curso
+                </button>
+                <button class="nav-btn-emp" onclick="mostrarSecaoEmpregador('publicacoes-emp')">
+                    Minhas Publicações
+                </button>
+                <button class="nav-btn-emp" onclick="mostrarSecaoEmpregador('candidatos-emp')">
+                    Candidatos
+                </button>
+                <button class="nav-btn-emp" onclick="mostrarSecaoEmpregador('perfil-empregador')">
+                    ⚙ Configurações
+                </button>
+            </div>
+
+            <!-- Seção: Pedidos -->
+            <div id="pedidos-emp" class="content-section-emp active">
+                <h2 style="color: #ffffff; margin-bottom: 2rem;">   Pedidos Postados </h2>
+                
+                <div class="pedidos-container">
+                    <!-- Exemplo de Pedido 1 -->
+                    <div class="pedido-card">
+                        <div class="pedido-header">
+                            <div class="pedido-info">
+                                <h3>Solicitação de Cadastro de Vaga</h3>
+                                <p>📅 Recebido em: 14/11/2025 às 14:30</p>
+                            </div>
+                            <span class="pedido-status status-pendente">Pendente</span>
+                        </div>
+                        <div class="pedido-detalhes">
+                            <p><strong>Solicitante:</strong> Maria Silva</p>
+                            <p><strong>E-mail:</strong> maria.silva@email.com</p>
+                            <p><strong>Cargo:</strong> Auxiliar Administrativa</p>
+                            <p><strong>Empresa:</strong> Tech Solutions Ltda</p>
+                            <p><strong>Tipo:</strong> Vaga de Emprego</p>
+                        </div>
+                        <div class="acoes-pedido">
+                            <button class="btn-aprovar" onclick="aprovarPedido(1)">✓ Aprovar</button>
+                            <button class="btn-rejeitar" onclick="rejeitarPedido(1)">✗ Rejeitar</button>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo de Pedido 2 -->
+                    <div class="pedido-card">
+                        <div class="pedido-header">
+                            <div class="pedido-info">
+                                <h3>Inscrição em Curso de Capacitação</h3>
+                                <p>Recebido em: 13/11/2025 às 10:15</p>
+                            </div>
+                            <span class="pedido-status status-aprovado">Aprovado</span>
+                        </div>
+                        <div class="pedido-detalhes">
+                            <p><strong>Candidata:</strong> Ana Costa</p>
+                            <p><strong>E-mail:</strong> ana.costa@email.com</p>
+                            <p><strong>Curso:</strong> Informática Básica</p>
+                            <p><strong>Turma:</strong> Noturno - Início: 20/11/2025</p>
+                            <p><strong>Telefone:</strong> (83) 99999-8888</p>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo de Pedido 3 -->
+                    <div class="pedido-card">
+                        <div class="pedido-header">
+                            <div class="pedido-info">
+                                <h3>Solicitação de Parceria para Curso</h3>
+                                <p>Recebido em: 12/11/2025 às 16:45</p>
+                            </div>
+                            <span class="pedido-status status-pendente">Pendente</span>
+                        </div>
+                        <div class="pedido-detalhes">
+                            <p><strong>Instituição:</strong> Instituto de Tecnologia XYZ</p>
+                            <p><strong>E-mail:</strong> contato@institutoxyz.com.br</p>
+                            <p><strong>Curso proposto:</strong> Python para Iniciantes</p>
+                            <p><strong>Duração:</strong> 3 meses</p>
+                            <p><strong>Modalidade:</strong> Online</p>
+                        </div>
+                        <div class="acoes-pedido">
+                            <button class="btn-aprovar" onclick="aprovarPedido(3)">✓ Aprovar</button>
+                            <button class="btn-rejeitar" onclick="rejeitarPedido(3)">✗ Rejeitar</button>
+                        </div>
+                    </div>
+
+                    <div id="listaPedidos"></div>
+                </div>
+            </div>
+
+            <!-- Seção: Publicar Vaga/Curso -->
+            <div id="publicar-emp" class="content-section-emp">
+                <h2 style="color: #020659; margin-bottom: 2rem;">Publicar Nova Vaga ou Curso</h2>
+                
+                <div class="form-publicacao">
+                    <h3>Informações da Publicação</h3>
+                    
+                    <div class="form-group">
+                        <label>Tipo de Publicação *</label>
+                        <select id="tipoPublicacaoEmp" onchange="alternarCamposPublicacao()">
+                            <option value="vaga">Vaga de Emprego</option>
+                            <option value="curso">Curso/Capacitação</option>
+                        </select>
+                    </div>
+
+                    <!-- Campos para Vaga de Emprego -->
+                    <div id="camposVagaEmp">
+                        <div class="form-group">
+                            <label>Título da Vaga *</label>
+                            <input type="text" id="tituloVagaEmp" placeholder="Ex: Desenvolvedora Front-end Júnior">
+                            <div class="error-message" id="tituloVagaEmpError">Por favor, insira o título da vaga</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Empresa/Instituição *</label>
+                            <input type="text" id="nomeEmpresaEmp" placeholder="Nome da sua empresa">
+                            <div class="error-message" id="nomeEmpresaEmpError">Por favor, insira o nome da empresa</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descrição da Vaga *</label>
+                            <textarea id="descricaoVagaEmp" placeholder="Descreva as responsabilidades, requisitos e o que oferecemos..." rows="5"></textarea>
+                            <div class="error-message" id="descricaoVagaEmpError">Por favor, descreva a vaga</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Localização *</label>
+                            <input type="text" id="localizacaoVagaEmp" placeholder="Ex: Campina Grande - PB (Presencial/Remoto)">
+                            <div class="error-message" id="localizacaoVagaEmpError">Por favor, insira a localização</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo de Contrato</label>
+                            <select id="tipoContratoEmp">
+                                <option value="clt">CLT</option>
+                                <option value="pj">PJ</option>
+                                <option value="temporario">Temporário</option>
+                                <option value="estagio">Estágio</option>
+                                <option value="freelance">Freelance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Salário</label>
+                            <input type="text" id="salarioVagaEmp" placeholder="Ex: R$ 2.500,00 ou A combinar">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Requisitos</label>
+                            <textarea id="requisitosVagaEmp" placeholder="Liste os requisitos necessários para a vaga..." rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Benefícios</label>
+                            <textarea id="beneficiosVagaEmp" placeholder="Ex: Vale transporte, vale alimentação, plano de saúde..." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Campos para Curso (inicialmente ocultos) -->
+                    <div id="camposCursoEmp" style="display: none;">
+                        <div class="form-group">
+                            <label>Nome do Curso *</label>
+                            <input type="text" id="nomeCursoEmp" placeholder="Ex: Desenvolvimento Web Full Stack">
+                            <div class="error-message" id="nomeCursoEmpError">Por favor, insira o nome do curso</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Instituição Responsável *</label>
+                            <input type="text" id="instituicaoCursoEmp" placeholder="Nome da instituição">
+                            <div class="error-message" id="instituicaoCursoEmpError">Por favor, insira a instituição</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descrição do Curso *</label>
+                            <textarea id="descricaoCursoEmp" placeholder="Descreva o conteúdo programático, objetivos e metodologia..." rows="5"></textarea>
+                            <div class="error-message" id="descricaoCursoEmpError">Por favor, descreva o curso</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Carga Horária *</label>
+                            <input type="text" id="cargaHorariaCursoEmp" placeholder="Ex: 80 horas">
+                            <div class="error-message" id="cargaHorariaCursoEmpError">Por favor, insira a carga horária</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Data de Início *</label>
+                            <input type="date" id="dataInicioCursoEmp">
+                            <div class="error-message" id="dataInicioCursoEmpError">Por favor, selecione a data de início</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Horário</label>
+                            <input type="text" id="horarioCursoEmp" placeholder="Ex: Segunda a Sexta, 19h às 22h">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Número de Vagas</label>
+                            <input type="number" id="vagasCursoEmp" placeholder="Ex: 30" min="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Modalidade</label>
+                            <select id="modalidadeCursoEmp">
+                                <option value="presencial">Presencial</option>
+                                <option value="online">Online</option>
+                                <option value="hibrido">Híbrido</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Requisitos para Participação</label>
+                            <textarea id="requisitosCursoEmp" placeholder="Pré-requisitos necessários..." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contato para Informações *</label>
+                        <input type="text" id="contatoPublicacaoEmp" placeholder="E-mail ou telefone para contato">
+                        <div class="error-message" id="contatoPublicacaoEmpError">Por favor, insira um contato</div>
+                    </div>
+
+                    <button class="btn" onclick="publicarConteudoEmpregador()" style="width: 100%; margin-top: 1rem; font-size: 1.1rem;">
+                        📤 Publicar Agora
+                    </button>
+                </div>
+            </div>
+
+            <!-- Seção: Minhas Publicações -->
+            <div id="publicacoes-emp" class="content-section-emp">
+                <h2 style="color: #020659; margin-bottom: 2rem;">Minhas Publicações</h2>
+                
+                <div class="vagas-publicadas-emp">
+                    <!-- Exemplo de Publicação 1 -->
+                    <div class="vaga-emp-item">
+                        <div class="vaga-emp-header">
+                            <h3>Desenvolvedora Front-end Júnior</h3>
+                            <span class="vaga-badge">🟢 Ativa</span>
+                        </div>
+                        <div class="vaga-emp-detalhes">
+                            <p><strong>Empresa:</strong> Tech Solutions Ltda</p>
+                            <p><strong>Publicado em:</strong> 10/11/2025</p>
+                            <p><strong>Candidatas:</strong> 15 pessoas interessadas</p>
+                            <p><strong>Local:</strong> Campina Grande - PB (Híbrido)</p>
+                        </div>
+                        <div class="vaga-emp-acoes">
+                            <button class="btn-candidatos" onclick="verCandidatosVaga(1)">Ver Candidatos (15)</button>
+                            <button class="btn-editar" onclick="editarPublicacao(1)">Editar</button>
+                            <button class="btn-excluir" onclick="excluirPublicacao(1)">Excluir</button>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo de Publicação 2 -->
+                    <div class="vaga-emp-item">
+                        <div class="vaga-emp-header">
+                            <h3>Curso de Python para Iniciantes</h3>
+                            <span class="vaga-badge">Ativa</span>
+                        </div>
+                        <div class="vaga-emp-detalhes">
+                            <p><strong>Instituição:</strong> Instituto SENAI</p>
+                            <p><strong>Publicado em:</strong> 05/11/2025</p>
+                            <p><strong>Inscritas:</strong> 28 de 30 vagas</p>
+                            <p><strong>Início:</strong> 20/11/2025</p>
+                        </div>
+                        <div class="vaga-emp-acoes">
+                            <button class="btn-candidatos" onclick="verCandidatosVaga(2)">Ver Inscritas (28)</button>
+                            <button class="btn-editar" onclick="editarPublicacao(2)">Editar</button>
+                            <button class="btn-excluir" onclick="excluirPublicacao(2)">Excluir</button>
+                        </div>
+                    </div>
+
+                    <div id="listaPublicacoesEmp"></div>
+                </div>
+            </div>
+
+            <!-- Seção: Candidatos -->
+            <div id="candidatos-emp" class="content-section-emp">
+                <h2 style="color: #020659; margin-bottom: 2rem;">👥 Candidatos e Inscritas</h2>
+                
+                <div class="candidatos-lista">
+                    <p style="text-align: center; color: #666; font-size: 1.1rem;">
+                        Selecione uma publicação na seção "Minhas Publicações" para visualizar os candidatos.
+                    </p>
+                    <div id="listaCandidatosEmp"></div>
+                </div>
+            </div>
+
+            <!-- Seção: Configurações do Perfil -->
+            <div id="perfil-empregador" class="content-section-emp">
+                <h2 style="color: #020659; margin-bottom: 2rem;">⚙ Configurações do Perfil</h2>
+                
+                <div class="form-publicacao">
+                    <h3>Informações da Empresa/Instituição</h3>
+                    
+                    <div class="form-group">
+                        <label>Nome da Empresa/Instituição *</label>
+                        <input type="text" id="nomePerfilEmp" placeholder="Nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label>CNPJ</label>
+                        <input type="text" id="cnpjPerfilEmp" placeholder="00.000.000/0000-00" maxlength="18" oninput="formatarCNPJ(this)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail Corporativo *</label>
+                        <input type="email" id="emailPerfilEmp" placeholder="contato@empresa.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefone *</label>
+                        <input type="tel" id="telefonePerfilEmp" placeholder="(00) 00000-0000" maxlength="15" oninput="formatarTelefone(this)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Endereço Completo</label>
+                        <input type="text" id="enderecoPerfilEmp" placeholder="Rua, número, bairro, cidade">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Site</label>
+                        <input type="url" id="sitePerfilEmp" placeholder="https://www.empresa.com.br">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sobre a Empresa/Instituição</label>
+                        <textarea id="sobrePerfilEmp" placeholder="Descreva sua empresa ou instituição, área de atuação, valores..." rows="5"></textarea>
+                    </div>
+
+                    <button class="btn" onclick="salvarPerfilEmpregador()" style="width: 100%; margin-top: 1rem; font-size: 1.1rem;">
+                        💾 Salvar Alterações
+                    </button>
                 </div>
             </div>
         </div>
