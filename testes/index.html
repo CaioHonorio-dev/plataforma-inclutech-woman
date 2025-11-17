@@ -1,0 +1,1159 @@
+<!-- ============================================ -->
+<!-- PARTE 1: ADICIONAR NO CSS (CSS.css) -->
+<!-- Cole este código NO FINAL do arquivo CSS.css -->
+<!-- ============================================ -->
+
+/* ==================== ÁREA DO EMPREGADOR ==================== */
+.empregador-dashboard {
+    display: none;
+}
+
+.empregador-dashboard.active {
+    display: block;
+}
+
+.nav-menu-empregador {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.nav-btn-emp {
+    padding: 1rem;
+    background: white;
+    border: 2px solid #8313F2;
+    color: #020659;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.nav-btn-emp:hover {
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.nav-btn-emp.active {
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    color: white;
+}
+
+.content-section-emp {
+    display: none;
+}
+
+.content-section-emp.active {
+    display: block;
+}
+
+.pedidos-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.pedido-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid #8313F2;
+    transition: all 0.3s;
+}
+
+.pedido-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(131, 19, 242, 0.2);
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pedido-info h3 {
+    margin: 0;
+    color: #020659;
+    font-size: 1.3rem;
+}
+
+.pedido-info p {
+    margin: 0.5rem 0 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.pedido-status {
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.status-pendente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-aprovado {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-rejeitado {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.pedido-detalhes {
+    margin: 1rem 0;
+    line-height: 1.8;
+}
+
+.pedido-detalhes p {
+    margin: 0.3rem 0;
+    color: #333;
+}
+
+.pedido-detalhes strong {
+    color: #020659;
+}
+
+.acoes-pedido {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-aprovar {
+    padding: 0.7rem 1.5rem;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-aprovar:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+.btn-rejeitar {
+    padding: 0.7rem 1.5rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-rejeitar:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.form-publicacao {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-publicacao h3 {
+    color: #020659;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.vagas-publicadas-emp {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.vaga-emp-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid #28a745;
+    transition: all 0.3s;
+}
+
+.vaga-emp-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.2);
+}
+
+.vaga-emp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.vaga-emp-header h3 {
+    margin: 0;
+    color: #020659;
+    font-size: 1.3rem;
+}
+
+.vaga-badge {
+    padding: 0.4rem 1rem;
+    background: #28a745;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.vaga-emp-detalhes p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.vaga-emp-acoes {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-editar {
+    padding: 0.7rem 1.5rem;
+    background: #ffc107;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-editar:hover {
+    background: #e0a800;
+    transform: scale(1.05);
+}
+
+.btn-excluir {
+    padding: 0.7rem 1.5rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-excluir:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.btn-candidatos {
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-candidatos:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(238, 5, 242, 0.4);
+}
+
+.candidatos-lista {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.candidato-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid #8313F2;
+}
+
+.candidato-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.candidato-info h4 {
+    margin: 0;
+    color: #020659;
+    font-size: 1.2rem;
+}
+
+.candidato-info p {
+    margin: 0.3rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.btn-visualizar {
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, #EE05F2, #8313F2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-visualizar:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .nav-menu-empregador {
+        grid-template-columns: 1fr;
+    }
+    
+    .pedido-header,
+    .vaga-emp-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .acoes-pedido,
+    .vaga-emp-acoes {
+        width: 100%;
+    }
+    
+    .acoes-pedido button,
+    .vaga-emp-acoes button {
+        flex: 1;
+    }
+}
+
+
+<!-- ============================================ -->
+<!-- PARTE 2: ADICIONAR NO HTML (index.html) -->
+<!-- Cole este código APÓS o fechamento da div "content" (antes do footer) -->
+<!-- Procure por: </div> (a que fecha .content) -->
+<!-- ============================================ -->
+
+        <!-- ==================== DASHBOARD DO EMPREGADOR ==================== -->
+        <div id="empregadorDashboard" class="empregador-dashboard">
+            <div class="hero-section">
+                <h1>Painel do Empregador/Instituição 💼</h1>
+                <p>Bem-vindo ao seu painel de gestão</p>
+            </div>
+
+            <!-- Menu de Navegação do Empregador -->
+            <div class="nav-menu-empregador">
+                <button class="nav-btn-emp active" onclick="mostrarSecaoEmpregador('pedidos-emp')">
+                    📋 Pedidos
+                </button>
+                <button class="nav-btn-emp" onclick="mostrarSecaoEmpregador('publicar-emp')">
+                    ✍ Publicar Vaga/Curso
+                </button>
+                <button class="nav-btn-emp" onclick="mostrarSecaoEmpregador('publicacoes-emp')">
+                    📢 Minhas Publicações
+                </button>
+                <button class="nav-btn-emp" onclick="mostrarSecaoEmpregador('candidatos-emp')">
+                    👥 Candidatos
+                </button>
+                <button class="nav-btn-emp" onclick="mostrarSecaoEmpregador('perfil-empregador')">
+                    ⚙ Configurações
+                </button>
+            </div>
+
+            <!-- Seção: Pedidos -->
+            <div id="pedidos-emp" class="content-section-emp active">
+                <h2 style="color: #020659; margin-bottom: 2rem;">📋 Pedidos Recebidos</h2>
+                
+                <div class="pedidos-container">
+                    <!-- Exemplo de Pedido 1 -->
+                    <div class="pedido-card">
+                        <div class="pedido-header">
+                            <div class="pedido-info">
+                                <h3>Solicitação de Cadastro de Vaga</h3>
+                                <p>📅 Recebido em: 14/11/2025 às 14:30</p>
+                            </div>
+                            <span class="pedido-status status-pendente">⏳ Pendente</span>
+                        </div>
+                        <div class="pedido-detalhes">
+                            <p><strong>Solicitante:</strong> Maria Silva</p>
+                            <p><strong>E-mail:</strong> maria.silva@email.com</p>
+                            <p><strong>Cargo:</strong> Auxiliar Administrativa</p>
+                            <p><strong>Empresa:</strong> Tech Solutions Ltda</p>
+                            <p><strong>Tipo:</strong> Vaga de Emprego</p>
+                        </div>
+                        <div class="acoes-pedido">
+                            <button class="btn-aprovar" onclick="aprovarPedido(1)">✓ Aprovar</button>
+                            <button class="btn-rejeitar" onclick="rejeitarPedido(1)">✗ Rejeitar</button>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo de Pedido 2 -->
+                    <div class="pedido-card">
+                        <div class="pedido-header">
+                            <div class="pedido-info">
+                                <h3>Inscrição em Curso de Capacitação</h3>
+                                <p>📅 Recebido em: 13/11/2025 às 10:15</p>
+                            </div>
+                            <span class="pedido-status status-aprovado">✓ Aprovado</span>
+                        </div>
+                        <div class="pedido-detalhes">
+                            <p><strong>Candidata:</strong> Ana Costa</p>
+                            <p><strong>E-mail:</strong> ana.costa@email.com</p>
+                            <p><strong>Curso:</strong> Informática Básica</p>
+                            <p><strong>Turma:</strong> Noturno - Início: 20/11/2025</p>
+                            <p><strong>Telefone:</strong> (83) 99999-8888</p>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo de Pedido 3 -->
+                    <div class="pedido-card">
+                        <div class="pedido-header">
+                            <div class="pedido-info">
+                                <h3>Solicitação de Parceria para Curso</h3>
+                                <p>📅 Recebido em: 12/11/2025 às 16:45</p>
+                            </div>
+                            <span class="pedido-status status-pendente">⏳ Pendente</span>
+                        </div>
+                        <div class="pedido-detalhes">
+                            <p><strong>Instituição:</strong> Instituto de Tecnologia XYZ</p>
+                            <p><strong>E-mail:</strong> contato@institutoxyz.com.br</p>
+                            <p><strong>Curso proposto:</strong> Python para Iniciantes</p>
+                            <p><strong>Duração:</strong> 3 meses</p>
+                            <p><strong>Modalidade:</strong> Online</p>
+                        </div>
+                        <div class="acoes-pedido">
+                            <button class="btn-aprovar" onclick="aprovarPedido(3)">✓ Aprovar</button>
+                            <button class="btn-rejeitar" onclick="rejeitarPedido(3)">✗ Rejeitar</button>
+                        </div>
+                    </div>
+
+                    <div id="listaPedidos"></div>
+                </div>
+            </div>
+
+            <!-- Seção: Publicar Vaga/Curso -->
+            <div id="publicar-emp" class="content-section-emp">
+                <h2 style="color: #020659; margin-bottom: 2rem;">✍ Publicar Nova Vaga ou Curso</h2>
+                
+                <div class="form-publicacao">
+                    <h3>Informações da Publicação</h3>
+                    
+                    <div class="form-group">
+                        <label>Tipo de Publicação *</label>
+                        <select id="tipoPublicacaoEmp" onchange="alternarCamposPublicacao()">
+                            <option value="vaga">💼 Vaga de Emprego</option>
+                            <option value="curso">📚 Curso/Capacitação</option>
+                        </select>
+                    </div>
+
+                    <!-- Campos para Vaga de Emprego -->
+                    <div id="camposVagaEmp">
+                        <div class="form-group">
+                            <label>Título da Vaga *</label>
+                            <input type="text" id="tituloVagaEmp" placeholder="Ex: Desenvolvedora Front-end Júnior">
+                            <div class="error-message" id="tituloVagaEmpError">Por favor, insira o título da vaga</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Empresa/Instituição *</label>
+                            <input type="text" id="nomeEmpresaEmp" placeholder="Nome da sua empresa">
+                            <div class="error-message" id="nomeEmpresaEmpError">Por favor, insira o nome da empresa</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descrição da Vaga *</label>
+                            <textarea id="descricaoVagaEmp" placeholder="Descreva as responsabilidades, requisitos e o que oferecemos..." rows="5"></textarea>
+                            <div class="error-message" id="descricaoVagaEmpError">Por favor, descreva a vaga</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Localização *</label>
+                            <input type="text" id="localizacaoVagaEmp" placeholder="Ex: Campina Grande - PB (Presencial/Remoto)">
+                            <div class="error-message" id="localizacaoVagaEmpError">Por favor, insira a localização</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo de Contrato</label>
+                            <select id="tipoContratoEmp">
+                                <option value="clt">CLT</option>
+                                <option value="pj">PJ</option>
+                                <option value="temporario">Temporário</option>
+                                <option value="estagio">Estágio</option>
+                                <option value="freelance">Freelance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Salário</label>
+                            <input type="text" id="salarioVagaEmp" placeholder="Ex: R$ 2.500,00 ou A combinar">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Requisitos</label>
+                            <textarea id="requisitosVagaEmp" placeholder="Liste os requisitos necessários para a vaga..." rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Benefícios</label>
+                            <textarea id="beneficiosVagaEmp" placeholder="Ex: Vale transporte, vale alimentação, plano de saúde..." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Campos para Curso (inicialmente ocultos) -->
+                    <div id="camposCursoEmp" style="display: none;">
+                        <div class="form-group">
+                            <label>Nome do Curso *</label>
+                            <input type="text" id="nomeCursoEmp" placeholder="Ex: Desenvolvimento Web Full Stack">
+                            <div class="error-message" id="nomeCursoEmpError">Por favor, insira o nome do curso</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Instituição Responsável *</label>
+                            <input type="text" id="instituicaoCursoEmp" placeholder="Nome da instituição">
+                            <div class="error-message" id="instituicaoCursoEmpError">Por favor, insira a instituição</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descrição do Curso *</label>
+                            <textarea id="descricaoCursoEmp" placeholder="Descreva o conteúdo programático, objetivos e metodologia..." rows="5"></textarea>
+                            <div class="error-message" id="descricaoCursoEmpError">Por favor, descreva o curso</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Carga Horária *</label>
+                            <input type="text" id="cargaHorariaCursoEmp" placeholder="Ex: 80 horas">
+                            <div class="error-message" id="cargaHorariaCursoEmpError">Por favor, insira a carga horária</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Data de Início *</label>
+                            <input type="date" id="dataInicioCursoEmp">
+                            <div class="error-message" id="dataInicioCursoEmpError">Por favor, selecione a data de início</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Horário</label>
+                            <input type="text" id="horarioCursoEmp" placeholder="Ex: Segunda a Sexta, 19h às 22h">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Número de Vagas</label>
+                            <input type="number" id="vagasCursoEmp" placeholder="Ex: 30" min="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Modalidade</label>
+                            <select id="modalidadeCursoEmp">
+                                <option value="presencial">Presencial</option>
+                                <option value="online">Online</option>
+                                <option value="hibrido">Híbrido</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Requisitos para Participação</label>
+                            <textarea id="requisitosCursoEmp" placeholder="Pré-requisitos necessários..." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contato para Informações *</label>
+                        <input type="text" id="contatoPublicacaoEmp" placeholder="E-mail ou telefone para contato">
+                        <div class="error-message" id="contatoPublicacaoEmpError">Por favor, insira um contato</div>
+                    </div>
+
+                    <button class="btn" onclick="publicarConteudoEmpregador()" style="width: 100%; margin-top: 1rem; font-size: 1.1rem;">
+                        📤 Publicar Agora
+                    </button>
+                </div>
+            </div>
+
+            <!-- Seção: Minhas Publicações -->
+            <div id="publicacoes-emp" class="content-section-emp">
+                <h2 style="color: #020659; margin-bottom: 2rem;">📢 Minhas Publicações</h2>
+                
+                <div class="vagas-publicadas-emp">
+                    <!-- Exemplo de Publicação 1 -->
+                    <div class="vaga-emp-item">
+                        <div class="vaga-emp-header">
+                            <h3>💼 Desenvolvedora Front-end Júnior</h3>
+                            <span class="vaga-badge">🟢 Ativa</span>
+                        </div>
+                        <div class="vaga-emp-detalhes">
+                            <p><strong>Empresa:</strong> Tech Solutions Ltda</p>
+                            <p><strong>Publicado em:</strong> 10/11/2025</p>
+                            <p><strong>Candidatas:</strong> 15 pessoas interessadas</p>
+                            <p><strong>Local:</strong> Campina Grande - PB (Híbrido)</p>
+                        </div>
+                        <div class="vaga-emp-acoes">
+                            <button class="btn-candidatos" onclick="verCandidatosVaga(1)">👥 Ver Candidatos (15)</button>
+                            <button class="btn-editar" onclick="editarPublicacao(1)">✏ Editar</button>
+                            <button class="btn-excluir" onclick="excluirPublicacao(1)">🗑 Excluir</button>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo de Publicação 2 -->
+                    <div class="vaga-emp-item">
+                        <div class="vaga-emp-header">
+                            <h3>📚 Curso de Python para Iniciantes</h3>
+                            <span class="vaga-badge">🟢 Ativa</span>
+                        </div>
+                        <div class="vaga-emp-detalhes">
+                            <p><strong>Instituição:</strong> Instituto SENAI</p>
+                            <p><strong>Publicado em:</strong> 05/11/2025</p>
+                            <p><strong>Inscritas:</strong> 28 de 30 vagas</p>
+                            <p><strong>Início:</strong> 20/11/2025</p>
+                        </div>
+                        <div class="vaga-emp-acoes">
+                            <button class="btn-candidatos" onclick="verCandidatosVaga(2)">👥 Ver Inscritas (28)</button>
+                            <button class="btn-editar" onclick="editarPublicacao(2)">✏ Editar</button>
+                            <button class="btn-excluir" onclick="excluirPublicacao(2)">🗑 Excluir</button>
+                        </div>
+                    </div>
+
+                    <div id="listaPublicacoesEmp"></div>
+                </div>
+            </div>
+
+            <!-- Seção: Candidatos -->
+            <div id="candidatos-emp" class="content-section-emp">
+                <h2 style="color: #020659; margin-bottom: 2rem;">👥 Candidatos e Inscritas</h2>
+                
+                <div class="candidatos-lista">
+                    <p style="text-align: center; color: #666; font-size: 1.1rem;">
+                        📌 Selecione uma publicação na seção "Minhas Publicações" para visualizar os candidatos.
+                    </p>
+                    <div id="listaCandidatosEmp"></div>
+                </div>
+            </div>
+
+            <!-- Seção: Configurações do Perfil -->
+            <div id="perfil-empregador" class="content-section-emp">
+                <h2 style="color: #020659; margin-bottom: 2rem;">⚙ Configurações do Perfil</h2>
+                
+                <div class="form-publicacao">
+                    <h3>Informações da Empresa/Instituição</h3>
+                    
+                    <div class="form-group">
+                        <label>Nome da Empresa/Instituição *</label>
+                        <input type="text" id="nomePerfilEmp" placeholder="Nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label>CNPJ</label>
+                        <input type="text" id="cnpjPerfilEmp" placeholder="00.000.000/0000-00" maxlength="18" oninput="formatarCNPJ(this)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail Corporativo *</label>
+                        <input type="email" id="emailPerfilEmp" placeholder="contato@empresa.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefone *</label>
+                        <input type="tel" id="telefonePerfilEmp" placeholder="(00) 00000-0000" maxlength="15" oninput="formatarTelefone(this)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Endereço Completo</label>
+                        <input type="text" id="enderecoPerfilEmp" placeholder="Rua, número, bairro, cidade">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Site</label>
+                        <input type="url" id="sitePerfilEmp" placeholder="https://www.empresa.com.br">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sobre a Empresa/Instituição</label>
+                        <textarea id="sobrePerfilEmp" placeholder="Descreva sua empresa ou instituição, área de atuação, valores..." rows="5"></textarea>
+                    </div>
+
+                    <button class="btn" onclick="salvarPerfilEmpregador()" style="width: 100%; margin-top: 1rem; font-size: 1.1rem;">
+                        💾 Salvar Alterações
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+/* ==================== FUNÇÕES PARA ÁREA DO EMPREGADOR ==================== */
+/* Cole este código NO FINAL do arquivo codigo.js (antes do comentário final) */
+
+/**
+ * Alterna entre as seções do dashboard do empregador
+ * @param {string} secao - ID da seção a ser exibida
+ */
+function mostrarSecaoEmpregador(secao) {
+    // Esconde todas as seções do empregador
+    document.querySelectorAll('.content-section-emp').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Exibe a seção selecionada
+    document.getElementById(secao).classList.add('active');
+    
+    // Atualiza os botões do menu
+    document.querySelectorAll('.nav-btn-emp').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Adiciona classe active ao botão clicado
+    event.target.classList.add('active');
+}
+
+/**
+ * Alterna entre os campos de vaga e curso no formulário de publicação
+ */
+function alternarCamposPublicacao() {
+    const tipo = document.getElementById('tipoPublicacaoEmp').value;
+    const camposVaga = document.getElementById('camposVagaEmp');
+    const camposCurso = document.getElementById('camposCursoEmp');
+    
+    if (tipo === 'vaga') {
+        camposVaga.style.display = 'block';
+        camposCurso.style.display = 'none';
+    } else {
+        camposVaga.style.display = 'none';
+        camposCurso.style.display = 'block';
+    }
+}
+
+/**
+ * Aprova um pedido recebido
+ * @param {number} idPedido - ID do pedido a ser aprovado
+ */
+function aprovarPedido(idPedido) {
+    if (confirm('Deseja aprovar este pedido?')) {
+        mostrarNotificacao(Pedido #${idPedido} aprovado com sucesso! A solicitante será notificada. ✓, 'success');
+        
+        // Atualiza o status visualmente (simulação)
+        const pedidoCard = event.target.closest('.pedido-card');
+        const statusBadge = pedidoCard.querySelector('.pedido-status');
+        statusBadge.textContent = '✓ Aprovado';
+        statusBadge.className = 'pedido-status status-aprovado';
+        
+        // Remove os botões de ação
+        const acoesDiv = pedidoCard.querySelector('.acoes-pedido');
+        if (acoesDiv) {
+            acoesDiv.remove();
+        }
+    }
+}
+
+/**
+ * Rejeita um pedido recebido
+ * @param {number} idPedido - ID do pedido a ser rejeitado
+ */
+function rejeitarPedido(idPedido) {
+    const motivo = prompt('Deseja informar o motivo da rejeição? (opcional)');
+    
+    if (motivo !== null) { // null significa que cancelou
+        mostrarNotificacao(Pedido #${idPedido} rejeitado. A solicitante será notificada. ✗, 'error');
+        
+        // Atualiza o status visualmente (simulação)
+        const pedidoCard = event.target.closest('.pedido-card');
+        const statusBadge = pedidoCard.querySelector('.pedido-status');
+        statusBadge.textContent = '✗ Rejeitado';
+        statusBadge.className = 'pedido-status status-rejeitado';
+        
+        // Remove os botões de ação
+        const acoesDiv = pedidoCard.querySelector('.acoes-pedido');
+        if (acoesDiv) {
+            acoesDiv.remove();
+        }
+    }
+}
+
+/**
+ * Valida e publica uma nova vaga ou curso
+ */
+function publicarConteudoEmpregador() {
+    const tipo = document.getElementById('tipoPublicacaoEmp').value;
+    let valido = true;
+    
+    if (tipo === 'vaga') {
+        // Validação de vaga de emprego
+        const titulo = document.getElementById('tituloVagaEmp').value.trim();
+        const nomeEmpresa = document.getElementById('nomeEmpresaEmp').value.trim();
+        const descricao = document.getElementById('descricaoVagaEmp').value.trim();
+        const localizacao = document.getElementById('localizacaoVagaEmp').value.trim();
+        const contato = document.getElementById('contatoPublicacaoEmp').value.trim();
+        
+        // Valida título
+        if (!titulo) {
+            mostrarErro('tituloVagaEmp', 'tituloVagaEmpError');
+            valido = false;
+        } else {
+            mostrarErro('tituloVagaEmp', 'tituloVagaEmpError', false);
+        }
+        
+        // Valida nome da empresa
+        if (!nomeEmpresa) {
+            mostrarErro('nomeEmpresaEmp', 'nomeEmpresaEmpError');
+            valido = false;
+        } else {
+            mostrarErro('nomeEmpresaEmp', 'nomeEmpresaEmpError', false);
+        }
+        
+        // Valida descrição
+        if (!descricao) {
+            mostrarErro('descricaoVagaEmp', 'descricaoVagaEmpError');
+            valido = false;
+        } else {
+            mostrarErro('descricaoVagaEmp', 'descricaoVagaEmpError', false);
+        }
+        
+        // Valida localização
+        if (!localizacao) {
+            mostrarErro('localizacaoVagaEmp', 'localizacaoVagaEmpError');
+            valido = false;
+        } else {
+            mostrarErro('localizacaoVagaEmp', 'localizacaoVagaEmpError', false);
+        }
+        
+        // Valida contato
+        if (!contato) {
+            mostrarErro('contatoPublicacaoEmp', 'contatoPublicacaoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('contatoPublicacaoEmp', 'contatoPublicacaoEmpError', false);
+        }
+        
+        if (valido) {
+            mostrarNotificacao('✓ Vaga de emprego publicada com sucesso! Em breve aparecerá na plataforma. 💼', 'success');
+            limparFormularioPublicacao();
+        } else {
+            mostrarNotificacao('⚠ Por favor, preencha todos os campos obrigatórios.', 'error');
+        }
+        
+    } else if (tipo === 'curso') {
+        // Validação de curso
+        const nomeCurso = document.getElementById('nomeCursoEmp').value.trim();
+        const instituicao = document.getElementById('instituicaoCursoEmp').value.trim();
+        const descricao = document.getElementById('descricaoCursoEmp').value.trim();
+        const cargaHoraria = document.getElementById('cargaHorariaCursoEmp').value.trim();
+        const dataInicio = document.getElementById('dataInicioCursoEmp').value;
+        const contato = document.getElementById('contatoPublicacaoEmp').value.trim();
+        
+        // Valida nome do curso
+        if (!nomeCurso) {
+            mostrarErro('nomeCursoEmp', 'nomeCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('nomeCursoEmp', 'nomeCursoEmpError', false);
+        }
+        
+        // Valida instituição
+        if (!instituicao) {
+            mostrarErro('instituicaoCursoEmp', 'instituicaoCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('instituicaoCursoEmp', 'instituicaoCursoEmpError', false);
+        }
+        
+        // Valida descrição
+        if (!descricao) {
+            mostrarErro('descricaoCursoEmp', 'descricaoCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('descricaoCursoEmp', 'descricaoCursoEmpError', false);
+        }
+        
+        // Valida carga horária
+        if (!cargaHoraria) {
+            mostrarErro('cargaHorariaCursoEmp', 'cargaHorariaCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('cargaHorariaCursoEmp', 'cargaHorariaCursoEmpError', false);
+        }
+        
+        // Valida data de início
+        if (!dataInicio) {
+            mostrarErro('dataInicioCursoEmp', 'dataInicioCursoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('dataInicioCursoEmp', 'dataInicioCursoEmpError', false);
+        }
+        
+        // Valida contato
+        if (!contato) {
+            mostrarErro('contatoPublicacaoEmp', 'contatoPublicacaoEmpError');
+            valido = false;
+        } else {
+            mostrarErro('contatoPublicacaoEmp', 'contatoPublicacaoEmpError', false);
+        }
+        
+        if (valido) {
+            mostrarNotificacao('✓ Curso publicado com sucesso! Em breve aparecerá na plataforma. 📚', 'success');
+            limparFormularioPublicacao();
+        } else {
+            mostrarNotificacao('⚠ Por favor, preencha todos os campos obrigatórios.', 'error');
+        }
+    }
+}
+
+/**
+ * Limpa o formulário de publicação após envio bem-sucedido
+ */
+function limparFormularioPublicacao() {
+    // Limpa campos de vaga
+    document.getElementById('tituloVagaEmp').value = '';
+    document.getElementById('nomeEmpresaEmp').value = '';
+    document.getElementById('descricaoVagaEmp').value = '';
+    document.getElementById('localizacaoVagaEmp').value = '';
+    document.getElementById('salarioVagaEmp').value = '';
+    document.getElementById('requisitosVagaEmp').value = '';
+    document.getElementById('beneficiosVagaEmp').value = '';
+    
+    // Limpa campos de curso
+    document.getElementById('nomeCursoEmp').value = '';
+    document.getElementById('instituicaoCursoEmp').value = '';
+    document.getElementById('descricaoCursoEmp').value = '';
+    document.getElementById('cargaHorariaCursoEmp').value = '';
+    document.getElementById('dataInicioCursoEmp').value = '';
+    document.getElementById('horarioCursoEmp').value = '';
+    document.getElementById('vagasCursoEmp').value = '';
+    document.getElementById('requisitosCursoEmp').value = '';
+    
+    // Limpa contato
+    document.getElementById('contatoPublicacaoEmp').value = '';
+    
+    // Remove erros
+    limparErros();
+}
+
+/**
+ * Edita uma publicação existente
+ * @param {number} idPublicacao - ID da publicação a ser editada
+ */
+function editarPublicacao(idPublicacao) {
+    mostrarNotificacao(Abrindo editor para a publicação #${idPublicacao}... ✏, 'success');
+    
+    // Navega para a seção de publicar
+    mostrarSecaoEmpregador('publicar-emp');
+    
+    // Aqui você pode preencher o formulário com os dados da publicação
+    // (simulação - em produção, buscaria os dados do banco)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/**
+ * Exclui uma publicação
+ * @param {number} idPublicacao - ID da publicação a ser excluída
+ */
+function excluirPublicacao(idPublicacao) {
+    if (confirm('⚠ Tem certeza que deseja excluir esta publicação? Esta ação não pode ser desfeita.')) {
+        mostrarNotificacao(Publicação #${idPublicacao} excluída com sucesso! 🗑, 'success');
+        
+        // Remove o card visualmente (simulação)
+        const vagaCard = event.target.closest('.vaga-emp-item');
+        if (vagaCard) {
+            vagaCard.style.transition = 'opacity 0.3s, transform 0.3s';
+            vagaCard.style.opacity = '0';
+            vagaCard.style.transform = 'translateX(-50px)';
+            
+            setTimeout(() => {
+                vagaCard.remove();
+            }, 300);
+        }
+    }
+}
+
+/**
+ * Exibe os candidatos de uma vaga específica
+ * @param {number} idVaga - ID da vaga
+ */
+function verCandidatosVaga(idVaga) {
+    // Navega para a seção de candidatos
+    mostrarSecaoEmpregador('candidatos-emp');
+    
+    // Exibe candidatos exemplo (simulação)
+    const listaCandidatos = document.getElementById('listaCandidatosEmp');
+    
+    listaCandidatos.innerHTML = `
+        <h3 style="color: #020659; margin-bottom: 1.5rem;">Candidatos da Vaga #${idVaga}</h3>
+        
+        <div class="candidato-card">
+            <div class="candidato-header">
+                <div class="candidato-info">
+                    <h4>👤 Maria Silva</h4>
+                    <p>📧 maria.silva@email.com</p>
+                    <p>📱 (83) 99999-8888</p>
+                    <p>🎯 Área: Desenvolvimento Web</p>
+                    <p>📊 Nível: Intermediário</p>
+                </div>
+                <button class="btn-visualizar" onclick="visualizarCandidato(1)">
+                    👁 Ver Perfil Completo
+                </button>
+            </div>
+            <p style="margin-top: 1rem; color: #666;">
+                <strong>Candidatou-se em:</strong> 14/11/2025 às 10:30
+            </p>
+        </div>
+        
+        <div class="candidato-card">
+            <div class="candidato-header">
+                <div class="candidato-info">
+                    <h4>👤 Ana Costa</h4>
+                    <p>📧 ana.costa@email.com</p>
+                    <p>📱 (83) 98888-7777</p>
+                    <p>🎯 Área: Desenvolvimento Web</p>
+                    <p>📊 Nível: Iniciante</p>
+                </div>
+                <button class="btn-visualizar" onclick="visualizarCandidato(2)">
+                    👁 Ver Perfil Completo
+                </button>
+            </div>
+            <p style="margin-top: 1rem; color: #666;">
+                <strong>Candidatou-se em:</strong> 13/11/2025 às 15:45
+            </p>
+        </div>
+        
+        <div class="candidato-card">
+            <div class="candidato-header">
+                <div class="candidato-info">
+                    <h4>👤 Julia Santos</h4>
+                    <p>📧 julia.santos@email.com</p>
+                    <p>📱 (83) 97777-6666</p>
+                    <p>🎯 Área: UX/UI Design</p>
+                    <p>📊 Nível: Avançado</p>
+                </div>
+                <button class="btn-visualizar" onclick="visualizarCandidato(3)">
+                    👁 Ver Perfil Completo
+                </button>
+            </div>
+            <p style="margin-top: 1rem; color: #666;">
+                <strong>Candidatou-se em:</strong> 12/11/2025 às 09:20
+            </p>
+        </div>
+    `;
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/**
+ * Visualiza o perfil completo de um candidato
+ * @param {number} idCandidato - ID do candidato
+ */
+function visualizarCandidato(idCandidato) {
+    mostrarNotificacao(Abrindo perfil completo do candidato #${idCandidato}... 👁, 'success');
+    
+    // Aqui você implementaria a visualização do perfil completo
+    // Por exemplo, abrir um modal ou redirecionar para uma página de detalhes
+}
+
+/**
+ * Salva as alterações do perfil do empregador
+ */
+function salvarPerfilEmpregador() {
+    const nome = document.getElementById('nomePerfilEmp').value.trim();
+    const email = document.getElementById('emailPerfilEmp').value.trim();
+    const telefone = document.getElementById('telefonePerfilEmp').value.trim();
+    
+    if (!nome || !email || !telefone) {
+        mostrarNotificacao('⚠ Por favor, preencha os campos obrigatórios (Nome, E-mail e Telefone).', 'error');
+        return;
+    }
+    
+    mostrarNotificacao('✓ Perfil atualizado com sucesso! 💾', 'success');
+}
+
+/**
+ * IMPORTANTE: SUBSTITUA a função entrarPlataforma EXISTENTE por esta versão atualizada
+ * Modifica a função entrarPlataforma para suportar empregador
+ */
+function entrarPlataforma() {
+    const nome = usuarioNome || 'Usuário';
+    
+    // Esconde tela de login e exibe plataforma
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('mainPlatform').style.display = 'block';
+    
+    // Verifica o tipo de usuário e exibe o dashboard apropriado
+    if (usuarioTipo === 'empregador') {
+        // Esconde o conteúdo padrão e exibe dashboard do empregador
+        document.querySelector('.content').style.display = 'none';
+        document.getElementById('empregadorDashboard').classList.add('active');
+        
+        // Exibe notificação de boas-vindas
+        mostrarNotificacao(Bem-vindo, ${nome}! Gerencie suas vagas e cursos. 💼, 'success');
+        
+    } else {
+        // Exibe conteúdo padrão para usuária
+        document.querySelector('.content').style.display = 'block';
+        document.getElementById('empregadorDashboard').classList.remove('active');
+        
+        // Exibe notificação de boas-vindas
+        mostrarNotificacao(Bem-vinda, ${nome}! 💜, 'success');
+    }
+}
+
+/**
+ * IMPORTANTE: SUBSTITUA a função sair EXISTENTE por esta versão atualizada
+ * Modifica a função sair para resetar também o dashboard do empregador
+ */
+function sair() {
+    if (confirm('Deseja realmente sair?')) {
+        // Esconde plataforma e exibe tela de login
+        document.getElementById('mainPlatform').style.display = 'none';
+        document.getElementById('loginScreen').style.display = 'flex';
+        
+        // Reseta displays
+        document.querySelector('.content').style.display = 'block';
+        document.getElementById('empregadorDashboard').classList.remove('active');
+        
+        // Reseta todos os formulários para estado inicial
+        document.getElementById('loginForm').classList.remove('hidden');
+        document.getElementById('cadastroForm').classList.add('hidden');
+        document.getElementById('tipoUsuarioForm').classList.add('hidden');
+        document.getElementById('dadosUsuariaForm').classList.add('hidden');
+        document.getElementById('dadosEmpregadorForm').classList.add('hidden');
+        
+        // Limpa variáveis
+        usuarioTipo = '';
+        usuarioNome = '';
+        usuarioEmail = '';
+        
+        // Limpa erros
+        limparErros();
+        
+        // Exibe mensagem de despedida
+        mostrarNotificacao('Até breve! 👋', 'success');
+    }
+}
+
+/* ==================== FIM DAS FUNÇÕES DO EMPREGADOR ==================== */
